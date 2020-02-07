@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CF29DA0C-936F-42D2-88B3-9A38D2CC6E26}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Win32Project2a</RootNamespace>
+    <RootNamespace>GraphicsAndTimers</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>GraphicsAndTimers</ProjectName>
   </PropertyGroup>
@@ -146,18 +146,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="Colors.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Draw.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Shapes.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Win32Project2a.h" />
+    <ClInclude Include="TrafficLight.h" />
+    <ClInclude Include="Main.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TrafficLight.cpp" />
     <ClCompile Include="Win32Project2a.cpp" />
   </ItemGroup>
   <ItemGroup>

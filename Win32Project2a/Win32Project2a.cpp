@@ -14,7 +14,6 @@
 // Constants
 #define MAX_LOADSTRING 100
 
-
 #define IDC_MYICON 2
 #define IDD_DAT154ASSIGNMENT2_DIALOG 102
 #define IDS_APP_TITLE 103
@@ -44,10 +43,7 @@ LRESULT CALLBACK    DlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPara
 using namespace Colors;
 
 
-//Graphics
-
-int LIGHTS_STATE = 0;
-
+// Traffic Light System constants
 int LIGHT_RED = 0;
 int LIGHT_READY = 1;
 int LIGHT_GREEN = 2;
@@ -103,7 +99,7 @@ void drawLightsWithCommonState(HDC* hdc, int x1, int y1, int x2, int y2, int lig
 	}
 };
 
-int light = 0;
+int lightState = 0;
 int changeLight = 0;
 int pw;
 int pn;
@@ -244,7 +240,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PAINTSTRUCT ps;
 		HDC hdc = BeginPaint(hWnd, &ps);
 
-		drawLightsWithCommonState(&hdc, LIGHT_1_X, LIGHT_1_Y, LIGHT_2_X, LIGHT_2_Y, light);
+		drawLightsWithCommonState(&hdc, LIGHT_1_X, LIGHT_1_Y, LIGHT_2_X, LIGHT_2_Y, lightState);
 		
 		DrawRoads(&hdc);
 		DrawCars(&hdc, cars, it);
@@ -262,7 +258,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			cars.push_front(Car(rand() % 80 + 655, 10, true));
 		}
 		if (changeLight == 1770) {
-			light = (light + 1) % 6;
+			lightState = (lightState + 1) % 6;
 			InvalidateRect(hWnd, 0, true);
 		}
 		for (it = cars.begin(); it != cars.end(); ++it) {
@@ -280,7 +276,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						continue;
 					}
 				}
-				if (light == 3 || light == 4) {
+				if (lightState == 3 || lightState == 4) {
 					it->Move();
 					InvalidateRect(hWnd, 0, true);
 				}
@@ -298,7 +294,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						continue;
 					}
 				}
-				if (light == 0 || light == 1) {
+				if (lightState == 0 || lightState == 1) {
 					it->Move();
 					InvalidateRect(hWnd, 0, true);
 				}

@@ -26,3 +26,4 @@ void TrafficLight::nextPhase() {
 	default: { break; }
 	}
 }
+

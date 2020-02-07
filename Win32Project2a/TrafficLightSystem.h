@@ -1,10 +1,10 @@
 #pragma once
 
-class TrafficLightSystem
-{
-	int state;
+class TrafficLightSystem {
+	int phase;
 public:
 	TrafficLightSystem();
 	void nextPhase();
+	int getPhase() { return phase; };
 };
 

@@ -6,9 +6,9 @@
 */
 
 TrafficLightSystem::TrafficLightSystem() {
-	this->state = 0;
+	this->phase = 0;
 }
 
 void TrafficLightSystem::nextPhase() {
-	this->state = state + 1 % 6;
+	this->phase = phase + 1 % 6;
 }

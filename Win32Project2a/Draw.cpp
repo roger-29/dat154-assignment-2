@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <list>
 
+#include "TrafficLight.h"
 
 #include "Shapes.h"
 #include "stdafx.h"
@@ -28,66 +29,70 @@ const COLORREF GREY = RGB(192, 192, 192);
 const COLORREF DARKGREY = RGB(105, 105, 105);
 const COLORREF BLACK = RGB(0, 0, 0);
 
-void DrawTrafficLight(HDC* hdc, int x, int y, int state) {
+namespace Draw {
 
-	// Dimensions
-	int left = x;
-	int top = y;
+	void TrafficLight(HDC* hdc, int x, int y, int state) {
 
-	int right = left + 90;
-	int bottom = top + 250;
+		// Dimensions
+		int left = x;
+		int top = y;
 
-	int firstTop = top + 10;
-	int secondTop = top + 90;
-	int thirdTop = top + 170;
+		int right = left + 90;
+		int bottom = top + 250;
 
-	// Draw background
-	Rect(hdc, left, top, right, bottom, BLACK);
+		int firstTop = top + 10;
+		int secondTop = top + 90;
+		int thirdTop = top + 170;
 
-	// Draw lights with color based on light state
-	switch (state) {
-	case 0:
-	{
-		Circle(hdc, left + 10, firstTop, right - 10, top + 80, RED);
-		Circle(hdc, left + 10, secondTop, right - 10, top + 160, GREY);
-		Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREY);
-		break;
+		// Draw background
+		Rect(hdc, left, top, right, bottom, BLACK);
+
+		// Draw lights with color based on light state
+		switch (state) {
+		case 0:
+		{
+			Circle(hdc, left + 10, firstTop, right - 10, top + 80, RED);
+			Circle(hdc, left + 10, secondTop, right - 10, top + 160, GREY);
+			Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREY);
+			break;
+		}
+
+		case 1:
+		{
+			Circle(hdc, left + 10, firstTop, right - 10, top + 80, RED);
+			Circle(hdc, left + 10, secondTop, right - 10, top + 160, YELLOW);
+			Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREY);
+			break;
+		}
+		case 2:
+		{
+			Circle(hdc, left + 10, firstTop, right - 10, top + 80, GREY);
+			Circle(hdc, left + 10, secondTop, right - 10, top + 160, GREY);
+			Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREEN);
+			break;
+		}
+
+		case 3:
+		{
+			Circle(hdc, left, firstTop, right - 10, top + 80, GREY);
+			Circle(hdc, left, secondTop, right - 10, top + 160, YELLOW);
+			Circle(hdc, left, thirdTop, right - 10, top + 240, GREY);
+			break;
+		}
+		}
+	};
+
+	void Roads(HDC* hdc) {
+		// Background
+		Rect(hdc, 650, 10, 775, 675, DARKGREY);
+		Rect(hdc, 10, 280, 1410, 405, DARKGREY);
+
+		// Lines
+		Rect(hdc, 662, 10, 664, 675, WHITE);
+		Rect(hdc, 761, 10, 763, 675, WHITE);
+
+		// Lines
+		Rect(hdc, 10, 292, 1410, 294, WHITE);
+		Rect(hdc, 10, 391, 1410, 393, WHITE);
 	}
-
-	case 1:
-	{
-		Circle(hdc, left + 10, firstTop, right - 10, top + 80, RED);
-		Circle(hdc, left + 10, secondTop, right - 10, top + 160, YELLOW);
-		Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREY);
-		break;
-	}
-	case 2:
-	{
-		Circle(hdc, left + 10, firstTop, right - 10, top + 80, GREY);
-		Circle(hdc, left + 10, secondTop, right - 10, top + 160, GREY);
-		Circle(hdc, left + 10, thirdTop, right - 10, top + 240, GREEN);
-		break;
-	}
-
-	case 3:
-	{
-		Circle(hdc, left, firstTop, right - 10, top + 80, GREY);
-		Circle(hdc, left, secondTop, right - 10, top + 160, YELLOW);
-		Circle(hdc, left, thirdTop, right - 10, top + 240, GREY);
-		break;
-	}
-	}
-};
-
-void DrawRoads(HDC* hdc) {
-	Rect(hdc, 650, 10, 775, 675, DARKGREY);
-	Rect(hdc, 10, 280, 1410, 405, DARKGREY);
-
-	Rect(hdc, 662, 10, 664, 675, WHITE);
-	Rect(hdc, 761, 10, 763, 675, WHITE);
-
-	Rect(hdc, 10, 292, 1410, 294, WHITE);
-	Rect(hdc, 10, 391, 1410, 393, WHITE);
 }
-
-

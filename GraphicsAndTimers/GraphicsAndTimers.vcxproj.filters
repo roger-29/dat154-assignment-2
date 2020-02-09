@@ -45,9 +45,6 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Win32Project2a.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Car.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
@@ -77,9 +74,6 @@
     <ClCompile Include="TrafficLight.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Win32Project2a.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Draw.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
@@ -89,9 +83,12 @@
     <ClCompile Include="TrafficLightSystem.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Win32Project2a.rc">
+    <ResourceCompile Include="GraphicsAndTimers.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -99,7 +96,7 @@
     <Image Include="small.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Win32Project2a.ico">
+    <Image Include="GraphicsAndTimers.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

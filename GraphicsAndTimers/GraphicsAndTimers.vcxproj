@@ -157,11 +157,11 @@
     <ClInclude Include="TrafficLight.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="TrafficLightSystem.h" />
-    <ClInclude Include="Win32Project2a.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -171,14 +171,13 @@
     </ClCompile>
     <ClCompile Include="TrafficLight.cpp" />
     <ClCompile Include="TrafficLightSystem.cpp" />
-    <ClCompile Include="Win32Project2a.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Win32Project2a.rc" />
+    <ResourceCompile Include="GraphicsAndTimers.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="GraphicsAndTimers.ico" />
     <Image Include="small.ico" />
-    <Image Include="Win32Project2a.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
